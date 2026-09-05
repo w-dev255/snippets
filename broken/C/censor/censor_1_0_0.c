@@ -12,7 +12,7 @@ typedef struct {
 	char* buffer;
 	size_t buffer_capacity;
 
-	char* input_path;
+	char* path;
 	int fd;
 
 	size_t bytes;
