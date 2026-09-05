@@ -12,6 +12,7 @@ typedef struct {
 	char* input_buffer;
 	size_t input_buffer_len;
 	char* input_path;
+	size_t bytes_read;
 	int err;
 } INPUT;
 
@@ -19,6 +20,7 @@ typedef struct {
 	char* output_buffer;
 	size_t output_buffer_len;
 	char* output_path;
+	size_t bytes_written;
 	int err;
 } OUTPUT;
 
