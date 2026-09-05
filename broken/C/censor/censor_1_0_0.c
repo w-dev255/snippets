@@ -10,14 +10,14 @@
 
 typedef struct {
 	char* input_buffer;
-	int input_buffer_len;
+	size_t input_buffer_len;
 	char* input_path;
 	int err;
 } INPUT;
 
 typedef struct {
 	char* output_buffer;
-	int output_buffer_len;
+	size_t output_buffer_len;
 	char* output_path;
 	int err;
 } OUTPUT;
@@ -28,8 +28,15 @@ typedef struct {
 } WORD;
 
 typedef struct {
+	char* ptr;
+	char* start;
+	char* end;
+} PARSE;
+
+typedef struct {
 	INPUT* input;
 	OUTPUT* output;
 	WORD* word;
+	PARSE* parse;
 } DATA;
 
