@@ -86,6 +86,7 @@ typedef struct {
 	return 0;
 }*/
 
+/*Its purpose is to mask every character of the selected word with '#' and write the modified buffer to an output file.*/
 int censure(BUFFER* buffer) {
 	if (buffer == NULL) {
 		return 1;
