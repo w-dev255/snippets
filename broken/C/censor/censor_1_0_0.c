@@ -95,9 +95,11 @@ int main(int argc, char* argv[]) {
 	data->input->buffer_capacity = 2;
 	data->input->buffer = malloc(data->input->buffer_capacity);
 	if (!data->input->buffer) {
+		printf("%s\n", strerror(errno));
 		free_data(data);
 		return 1;
 	}
+	memset(data->input->buffer, 0, data->input->buffer_capacity);
 
 	data->output = calloc(1, sizeof(IO));
 	if (!data->output) {
@@ -108,9 +110,11 @@ int main(int argc, char* argv[]) {
 	data->output->buffer_capacity = 2;
 	data->output->buffer = malloc(data->output->buffer_capacity);
 	if (!data->output->buffer) {
+		printf("%s\n", strerror(errno));
 		free_data(data);
 		return 1;
-	} 
+	}
+	memset(data->output->buffer, 0, data->output->buffer_capacity);
 
 	data->word = calloc(1, sizeof(WORD));
 	if (!data->word) {
