@@ -16,7 +16,8 @@ typedef struct {
 	char* path;
 	int fd;
 
-	size_t bytes;
+	size_t bytes_read;
+	size_t bytes_written;
 	int err;
 } IO;
 
@@ -26,9 +27,10 @@ typedef struct {
 } WORD;
 
 typedef struct {
-	char* ptr;
+	char* current_char;
 	char* occurence_start;
 	char* occurence_end;
+	size_t match;
 } PARSE;
 
 typedef struct {
