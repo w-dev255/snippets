@@ -9,20 +9,15 @@
 #include <fcntl.h>
 
 typedef struct {
-	char* input_buffer;
-	size_t input_buffer_len;
-	char* input_path;
-	size_t bytes_read;
-	int err;
-} INPUT;
+	char* buffer;
+	size_t buffer_capacity;
 
-typedef struct {
-	char* output_buffer;
-	size_t output_buffer_len;
-	char* output_path;
-	size_t bytes_written;
+	char* input_path;
+	int fd;
+
+	size_t bytes;
 	int err;
-} OUTPUT;
+} IO;
 
 typedef struct {
 	char* word;
@@ -36,9 +31,17 @@ typedef struct {
 } PARSE;
 
 typedef struct {
-	INPUT* input;
-	OUTPUT* output;
+	IO* input;
+	IO* output;
 	WORD* word;
 	PARSE* parse;
 } DATA;
 
+int main(int argc, char* argv[]) {
+	errno = 0;
+	DATA* data = calloc(1, sizeof(DATA));
+	if (!data) {
+		printf("%s\n", strerror(errno));
+		return errno;
+	}
+}
