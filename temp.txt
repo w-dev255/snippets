@@ -1,0 +1,8 @@
+date: "Sat Sep 5 16:33:10 2026"
+
+object: "updated locations"
+
+entries:
+0: "https://github.com/w-dev255/snippets/blob/main/C/read/file/read_file_1_0_0.c",
+1: "https://github.com/w-dev255/snippets/blob/main/C/write/file/write_file_1_0_0.c"
+
