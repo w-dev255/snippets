@@ -11,6 +11,7 @@
 typedef struct {
 	char* buffer;
 	size_t buffer_capacity;
+	size_t buffer_len;
 
 	char* path;
 	int fd;
@@ -20,14 +21,14 @@ typedef struct {
 } IO;
 
 typedef struct {
-	char* word;
+	const char* word;
 	size_t word_len;
 } WORD;
 
 typedef struct {
 	char* ptr;
-	char* start;
-	char* end;
+	char* occurence_start;
+	char* occurence_end;
 } PARSE;
 
 typedef struct {
