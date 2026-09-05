@@ -8,6 +8,8 @@
 
 #include <fcntl.h>
 
+#include <errno.h>
+
 typedef struct {
 	char* buffer;
 	size_t buffer_capacity;
