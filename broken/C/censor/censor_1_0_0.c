@@ -49,7 +49,7 @@ void free_data(DATA* data) {
 		if (data->input->buffer) {
 			free(data->input->buffer);
 		}
-		if (data->input->fd > 0) {
+		if (data->input->fd > 2) {
 			close(data->input->fd);
 		}
 		free(data->input);
@@ -59,7 +59,7 @@ void free_data(DATA* data) {
 		if (data->output->buffer) {
 			free(data->output->buffer);
 		}
-		if (data->output->fd > 0) {
+		if (data->output->fd > 2) {
 			close(data->output->fd);
 		}
 		free(data->output);
