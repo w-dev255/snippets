@@ -21,7 +21,7 @@ typedef struct {
 
 typedef struct {
 	char* word;
-	int word_len;
+	size_t word_len;
 } WORD;
 
 typedef struct {
