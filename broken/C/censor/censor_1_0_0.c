@@ -83,12 +83,6 @@ int main(int argc, char* argv[]) {
 		printf("%s\n", strerror(errno));
 		return errno;
 	}
-	data->input->buffe_capacity = 2;
-	data->input->buffer = malloc(data->input->buffer_capacity);
-	if (!data->input->buffer) {
-		free(data);
-		return 1;
-	}
 
 	data->input = calloc(1, sizeof(IO));
 	if (!data->input) {
@@ -96,10 +90,10 @@ int main(int argc, char* argv[]) {
 		free_data(data);
 		return errno;
 	}
-	data->output->buffer_capacity = 2;
-	data->output->buffer = malloc(data->output->capacity);
-	if (!data->output->buffer) {
-		free(data);
+	data->input->buffer_capacity = 2;
+	data->input->buffer = malloc(data->input->buffer_capacity);
+	if (!data->input->buffer) {
+		free_data(data);
 		return 1;
 	}
 
@@ -109,6 +103,12 @@ int main(int argc, char* argv[]) {
 		free_data(data);
 		return errno;
 	}
+	data->output->buffer_capacity = 2;
+	data->output->buffer = malloc(data->output->buffer_capacity);
+	if (!data->output->buffer) {
+		free_data(data);
+		return 1;
+	} 
 
 	data->word = calloc(1, sizeof(WORD));
 	if (!data->word) {
