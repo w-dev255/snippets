@@ -47,4 +47,28 @@ int main(int argc, char* argv[]) {
 		printf("%s\n", strerror(errno));
 		return errno;
 	}
+
+	data->input = calloc(1, sizeof(IO));
+	if (!data->input) {
+		printf("%s\n", strerror(errno));
+		return errno;
+	}
+
+	data->output = calloc(1, sizeof(IO));
+	if (!data->output) {
+		printf("%s\n", strerror(errno));
+		return errno;
+	}
+
+	data->word = calloc(1, sizeof(WORD));
+	if (!data->word) {
+		printf("%s\n", strerror(errno));
+		return errno;
+	}
+
+	data->parse = calloc(1, sizeof(PARSE));
+	if (!data->parse) {
+		printf("%s\n", strerror(errno));
+		return errno;
+	}
 }
