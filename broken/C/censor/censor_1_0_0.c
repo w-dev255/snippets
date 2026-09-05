@@ -40,6 +40,32 @@ typedef struct {
 	PARSE* parse;
 } DATA;
 
+void free_data(DATA* data) {
+	if (!data) {
+		return;
+	}
+
+	if (data->input) {
+		free(data->input->buffer);
+		free(data->input);
+	}
+
+	if (data->output) {
+		free(data->output->buffer);
+		free(data->output);
+	}
+
+	if (data->word) {
+		free(data->word);
+	}
+
+	if (data->parse) {
+		free(parse);
+	}
+
+	free(data);
+}
+
 int main(int argc, char* argv[]) {
 	errno = 0;
 	DATA* data = calloc(1, sizeof(DATA));
@@ -51,24 +77,28 @@ int main(int argc, char* argv[]) {
 	data->input = calloc(1, sizeof(IO));
 	if (!data->input) {
 		printf("%s\n", strerror(errno));
+		free_data(data);
 		return errno;
 	}
 
 	data->output = calloc(1, sizeof(IO));
 	if (!data->output) {
 		printf("%s\n", strerror(errno));
+		free_data(data);
 		return errno;
 	}
 
 	data->word = calloc(1, sizeof(WORD));
 	if (!data->word) {
 		printf("%s\n", strerror(errno));
+		free_data(data);
 		return errno;
 	}
 
 	data->parse = calloc(1, sizeof(PARSE));
 	if (!data->parse) {
 		printf("%s\n", strerror(errno));
+		free_data(data);
 		return errno;
 	}
 }
